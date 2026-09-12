@@ -23,4 +23,17 @@ public class PlayerBullet : MonoBehaviour
         rb.useGravity = false;
         rb.linearVelocity = shootPointForward * speed;
     }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (collider.tag == "Enemy")
+        {
+            EnemyHealth eh = collider.gameObject.GetComponent<EnemyHealth>();
+            if (eh != null)
+            {
+                eh.Damage();
+            }
+        }
+        Destroy(gameObject);
+    }
 }
