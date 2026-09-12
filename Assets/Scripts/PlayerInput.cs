@@ -52,6 +52,7 @@ public class PlayerInput : MonoBehaviour
 
     private void OnActionChanged(object obj, InputActionChange change)
     {
+        return;
         // Check if the change event belongs to an individual action
         if (obj is InputAction action)
         {
