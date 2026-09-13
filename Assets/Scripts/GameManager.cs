@@ -45,5 +45,15 @@ public class GameManager : MonoBehaviour
         instance.onScoreUpdate.Invoke(score);
     }
 
+    static public void OnGameOver()
+    {
+        Debug.Log("Game over");
+    }
+
+    static public void OnGameClear()
+    {
+        Debug.Log("You Win");
+    }
+
 
 }

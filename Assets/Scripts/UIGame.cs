@@ -21,4 +21,10 @@ public class UIGame : MonoBehaviour
         TextMeshProUGUI scoreText = transform.Find("ScoreNumber").GetComponent< TextMeshProUGUI>();
         scoreText.text = score.ToString("D6");
     }
+
+    public void OnPlayerHpUpdate(int hp)
+    {
+        TextMeshProUGUI hpText = transform.Find("PlayerHP").GetComponent<TextMeshProUGUI>();
+        hpText.text = hp.ToString();
+    }
 }
