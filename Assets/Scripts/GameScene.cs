@@ -2,12 +2,12 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class UIGame : MonoBehaviour
+public class GameScene : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        GameManager.InitGame();
     }
 
     // Update is called once per frame

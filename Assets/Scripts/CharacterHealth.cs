@@ -34,7 +34,6 @@ public class CharacterHealth : MonoBehaviour
     public bool Damage(int damage = 1)
     {
         hp -= damage;
-        Debug.Log($"HP updated {hp}");
         onHealthUpdate.Invoke(hp);
         if (hp <= 0)
         {
