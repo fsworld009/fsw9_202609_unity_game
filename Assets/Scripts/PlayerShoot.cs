@@ -34,7 +34,6 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(attackAction.IsPressed());
         if (rapidDelayTimer > 0)
         {
             rapidDelayTimer -= Time.deltaTime;

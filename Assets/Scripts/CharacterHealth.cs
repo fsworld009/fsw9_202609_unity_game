@@ -1,13 +1,21 @@
 using UnityEngine;
+using UnityEngine.Events;
 
-public class EnemyHealth : MonoBehaviour
+public class CharacterHealth : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private int maxHp = 3;
+    [SerializeField] private UnityEvent<GameObject> onDeath = new UnityEvent<GameObject>();
 
     private int hp = 2;
     void Start()
     {
         
+    }
+
+    private void OnEnable()
+    {
+        hp = maxHp;
     }
 
     // Update is called once per frame
@@ -30,6 +38,7 @@ public class EnemyHealth : MonoBehaviour
     {
         //gameManager.AddScore(1);
         //GameManager.AddScore(100);
+        onDeath.Invoke(gameObject);
         Destroy(gameObject);
     }
 }

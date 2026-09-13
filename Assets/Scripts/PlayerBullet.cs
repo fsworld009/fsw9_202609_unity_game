@@ -28,12 +28,13 @@ public class PlayerBullet : MonoBehaviour
     {
         if (collider.tag == "Enemy")
         {
-            EnemyHealth eh = collider.gameObject.GetComponent<EnemyHealth>();
+            CharacterHealth eh = collider.gameObject.GetComponent<CharacterHealth>();
             if (eh != null)
             {
                 eh.Damage();
             }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        
     }
 }
