@@ -210,6 +210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ed212dde95e2c439de11c6ab900b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHp: 3
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3613789796216821966
 GameObject:
   m_ObjectHideFlags: 0

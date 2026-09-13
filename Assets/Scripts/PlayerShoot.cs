@@ -46,7 +46,6 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("SHoot");
         GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
         bullet.GetComponent<PlayerBullet>().SetVelocity(shootPoint.forward);
     }

@@ -5,7 +5,7 @@ public class CharacterHealth : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private int maxHp = 3;
-    [SerializeField] private UnityEvent<GameObject> onDeath = new UnityEvent<GameObject>();
+    [SerializeField] public UnityEvent<GameObject> onDeath = new UnityEvent<GameObject>();
 
     private int hp = 2;
     void Start()
@@ -22,6 +22,11 @@ public class CharacterHealth : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnDestroy()
+    {
+        onDeath.RemoveAllListeners();
     }
 
     public bool Damage(int damage = 1)
