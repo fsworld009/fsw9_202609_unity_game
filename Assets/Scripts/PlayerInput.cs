@@ -7,7 +7,6 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float rotateSpeed = 1;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    [SerializeField] private float jumpVelocity = 512.0f;
 
     private void OnEnable()
     {
@@ -16,7 +15,8 @@ public class PlayerInput : MonoBehaviour
 
 
         InputAction jumpAction = InputSystem.actions.FindAction("Jump");
-        jumpAction.performed += OnJump;
+        jumpAction.started += OnJump;
+
 
     }
 
@@ -84,7 +84,6 @@ public class PlayerInput : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        rb.linearVelocity = Vector3.up * jumpVelocity;
+        GetComponent<CharacterJump>().Jump();
     }
 }
