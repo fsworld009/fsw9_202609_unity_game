@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
@@ -22,7 +23,7 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.LookAt(player.transform);
+        transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
         if (cooldownTimer > 0)
         {
             cooldownTimer -= Time.deltaTime;

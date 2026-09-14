@@ -26,14 +26,23 @@ public class PlayerBullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Enemy")
+        switch (collider.tag)
         {
-            CharacterHealth eh = collider.gameObject.GetComponent<CharacterHealth>();
-            if (eh != null)
-            {
-                eh.Damage();
-            }
-            Destroy(gameObject);
+            case "Enemy":
+                // EnemyはColliderとTrigger持つ、そのうちのColliderしか反応しないように
+                if (collider.isTrigger) return;
+                CharacterHealth eh = collider.gameObject.GetComponent<CharacterHealth>();
+                if (eh != null)
+                {
+                    eh.Damage();
+                }
+                Destroy(gameObject);
+                break;
+            case "Terrain":
+                Destroy(gameObject);
+                break;
+            default:
+                break;
         }
         
     }
