@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerShoot : MonoBehaviour
+public class CharacterShoot : MonoBehaviour
 {
     private InputAction attackAction;
     private float rapidDelayTimer;
@@ -20,8 +20,6 @@ public class PlayerShoot : MonoBehaviour
 
     private void OnEnable()
     {
-
-        attackAction = InputSystem.actions.FindAction("Attack");
         rapidDelayTimer = 0;
 
     }
@@ -37,16 +35,16 @@ public class PlayerShoot : MonoBehaviour
         if (rapidDelayTimer > 0)
         {
             rapidDelayTimer -= Time.deltaTime;
-        } else if (attackAction.IsPressed())
-        {
-            Shoot();
-            rapidDelayTimer = rapidDelay;
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
+        if (rapidDelayTimer > 0) return;
+
         GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
-        bullet.GetComponent<PlayerBullet>().SetVelocity(shootPoint.forward);
+        bullet.transform.forward = shootPoint.forward;
+        //bullet.GetComponent<PlayerBullet>().SetVelocity(shootPoint.forward);
+        rapidDelayTimer = rapidDelay;
     }
 }

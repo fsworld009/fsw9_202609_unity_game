@@ -8,8 +8,7 @@ public class EnemyMove : MonoBehaviour
     private float cooldownTimer;
 
     [SerializeField] private float maxMoveTime = 3;
-    [SerializeField] private float maxCooldownTime = 1;
-    [SerializeField] private float moveSpeed = 1;
+    [SerializeField] private float maxCooldownTime = 3;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     [SerializeField] float stopDistance = 1.5f;
@@ -38,7 +37,7 @@ public class EnemyMove : MonoBehaviour
             {
                 float distance = Vector3.Distance(player.transform.position, transform.position);
                 if (distance > stopDistance) {
-                    transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+                    GetComponent<CharacterMove>().Move(Vector3.forward);
                 }
                 moveTimer -= Time.deltaTime;
             }

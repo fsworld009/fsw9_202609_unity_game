@@ -99,13 +99,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2853709521460274034}
-  - component: {fileID: 1946369546172004552}
-  - component: {fileID: 5592135615248673476}
-  - component: {fileID: 4475923737578401247}
-  - component: {fileID: 5987555612985192886}
-  - component: {fileID: 1966189069422673833}
   - component: {fileID: 3768978975441132016}
+  - component: {fileID: 1946369546172004552}
+  - component: {fileID: 8148133611096393649}
+  - component: {fileID: 4475923737578401247}
   - component: {fileID: 356022039290330071}
+  - component: {fileID: 1966189069422673833}
+  - component: {fileID: 5592135615248673476}
+  - component: {fileID: 5987555612985192886}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -133,6 +134,18 @@ Transform:
   - {fileID: 1355261981870425387}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3768978975441132016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082939027228966773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168185c66d4fdaa47984521096bcacd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollision
 --- !u!114 &1946369546172004552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +160,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   moveSpeed: 5
   rotateSpeed: 1
+--- !u!114 &8148133611096393649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082939027228966773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01454d9c65708144390b9632ee9737fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterMove
+  moveSpeed: 5
+  rotateSpeed: 1
+--- !u!114 &4475923737578401247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082939027228966773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1831b846da3bc4f9eb5b6b688a47bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerShoot
+  shootPoint: {fileID: 6635960694139883850}
+  bulletPrefab: {fileID: 5583588063425973289, guid: 8ad08cab94f2a3749ba6b555fea29878, type: 3}
+  rapidDelay: 0.5
+--- !u!114 &356022039290330071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082939027228966773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ed6795c2987ef4e9ef7b39c73969e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterJump
+  jumpVelocity: 5
+  groundCheckPoint: {fileID: 1355261981870425387}
+--- !u!114 &1966189069422673833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082939027228966773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ed212dde95e2c439de11c6ab900b2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterHealth
+  maxHp: 5
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthUpdate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!54 &5592135615248673476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -174,21 +249,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &4475923737578401247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082939027228966773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df1831b846da3bc4f9eb5b6b688a47bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerShoot
-  shootPoint: {fileID: 6635960694139883850}
-  bulletPrefab: {fileID: 5583588063425973289, guid: 8ad08cab94f2a3749ba6b555fea29878, type: 3}
-  rapidDelay: 0.5
 --- !u!136 &5987555612985192886
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -212,51 +272,6 @@ CapsuleCollider:
   m_Height: 1.4
   m_Direction: 1
   m_Center: {x: 0, y: 0.7, z: 0}
---- !u!114 &1966189069422673833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082939027228966773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7ed212dde95e2c439de11c6ab900b2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterHealth
-  maxHp: 5
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  onHealthUpdate:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &3768978975441132016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082939027228966773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168185c66d4fdaa47984521096bcacd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerCollision
---- !u!114 &356022039290330071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082939027228966773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06ed6795c2987ef4e9ef7b39c73969e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterJump
-  jumpVelocity: 5
-  groundCheckPoint: {fileID: 1355261981870425387}
 --- !u!1 &2890122857294285991
 GameObject:
   m_ObjectHideFlags: 0

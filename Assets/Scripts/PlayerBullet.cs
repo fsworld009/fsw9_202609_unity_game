@@ -16,12 +16,17 @@ public class PlayerBullet : MonoBehaviour
         
     }
 
-    public void SetVelocity(Vector3 shootPointForward)
+    void OnEnable()
+    {
+        SetVelocity();
+    }
+
+    void SetVelocity()
     {
 
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
-        rb.linearVelocity = shootPointForward * speed;
+        rb.linearVelocity = transform.forward * speed;
     }
 
     private void OnTriggerEnter(Collider collider)

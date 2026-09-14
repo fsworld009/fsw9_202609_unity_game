@@ -1,3 +1,4 @@
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
@@ -37,16 +38,22 @@ public class PlayerInput : MonoBehaviour
         {
             Vector2 moveInput = moveAction.ReadValue<Vector2>();
             Vector3 moveDir = new Vector3(moveInput.x, 0f, moveInput.y);
-            transform.Translate(moveDir * moveSpeed * Time.deltaTime);
+            GetComponent<CharacterMove>().Move(moveDir);
         }
 
         InputAction lookAction = InputSystem.actions.FindAction("Look");
         if (lookAction != null && lookAction.IsPressed())
         {
             Vector2 lookInput = lookAction.ReadValue<Vector2>();
-            Vector3 rotate = new Vector3(0, 90 * lookInput.x * rotateSpeed * Time.deltaTime, 0);
+            Vector3 rotateDir = new Vector3(0, 90 * lookInput.x, 0);
 
-            transform.Rotate(rotate);
+            GetComponent<CharacterMove>().Rotate(rotateDir);
+        }
+
+        InputAction attackAction = InputSystem.actions.FindAction("Attack");
+        if (attackAction != null && attackAction.IsPressed())
+        {
+            GetComponent<CharacterShoot>().Shoot();
         }
     }
 

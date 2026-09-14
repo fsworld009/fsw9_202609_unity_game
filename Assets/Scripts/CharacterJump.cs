@@ -7,10 +7,15 @@ public class CharacterJump : MonoBehaviour
     [SerializeField] private float jumpVelocity = 5;
     [SerializeField] private Transform groundCheckPoint;
     private bool isGround;
+
+    void OnEnable()
+    {
+
+        isGround = false;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        isGround = false;
     }
 
     // Update is called once per frame
