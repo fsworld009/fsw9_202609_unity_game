@@ -5,7 +5,6 @@ public class PlayerInput : MonoBehaviour
 {
     private void OnEnable()
     {
-        Debug.Log("PlayerInput enable");
         // Subscribe to the global action change event
         InputSystem.onActionChange += OnActionChanged;
 
@@ -19,12 +18,11 @@ public class PlayerInput : MonoBehaviour
     private void OnDisable()
     {
         // Unsubscribe to avoid memory leaks
-        Debug.Log("PlayerInput enable");
         InputSystem.onActionChange -= OnActionChanged;
 
 
         InputAction jumpAction = InputSystem.actions.FindAction("Jump");
-        jumpAction.performed -= OnJump;
+        jumpAction.started -= OnJump;
     }
 
     private void Update()
