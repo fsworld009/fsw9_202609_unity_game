@@ -17,13 +17,30 @@ public class PlayerMain : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         int damage = 0;
-        if (other.tag == "Enemy")
+        switch (other.tag)
         {
-            damage = 1;
+            case "Enemy": case "EnemyBullet":
+                damage = 1;
+                break;
+            default:
+                break;
         }
+
+
         if (damage > 0)
         {
-            GetComponent<CharacterHealth>().Damage();
+            GetComponent<CharacterDamage>().ReceiveDamange(damage);
         }
+
+
+
+        //if (other.tag == "Enemy")
+        //{
+        //    damage = 1;
+        //}
+        //if (damage > 0)
+        //{
+        //    GetComponent<CharacterHealth>().Damage();
+        //}
     }
 }

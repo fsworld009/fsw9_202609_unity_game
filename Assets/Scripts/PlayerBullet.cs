@@ -18,13 +18,8 @@ public class PlayerBullet : MonoBehaviour
         switch (collider.tag)
         {
             case "Enemy":
-                // Enemy‚ÍCollider‚ÆTrigger‚ÂA‚»‚Ì‚¤‚¿‚ÌCollider‚µ‚©”½‰‚µ‚È‚¢‚æ‚¤‚É
+                // Enemyã¯Colliderã¨TriggeræŒã¤ã€ãã®ã†ã¡ã®Colliderã—ã‹åå¿œã—ãªã„ã‚ˆã†ã«
                 if (collider.isTrigger) return;
-                CharacterHealth eh = collider.gameObject.GetComponent<CharacterHealth>();
-                if (eh != null)
-                {
-                    eh.Damage();
-                }
                 Destroy(gameObject);
                 break;
             case "Terrain": case "EnemyBullet":

@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class CharacterShoot : MonoBehaviour
 {
-    private InputAction attackAction;
     private float rapidDelayTimer;
     
 
@@ -26,7 +25,6 @@ public class CharacterShoot : MonoBehaviour
 
     private void OnDisable()
     {
-        attackAction = null;
     }
 
     // Update is called once per frame

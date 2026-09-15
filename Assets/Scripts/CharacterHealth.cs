@@ -48,4 +48,8 @@ public class CharacterHealth : MonoBehaviour
         //GameManager.AddScore(100);
         onDeath.Invoke(gameObject);
     }
+
+    public bool IsDead() { return hp <= 0; }
+
+    public float GetHpRate() { return hp / maxHp; }
 }

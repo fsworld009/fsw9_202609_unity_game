@@ -17,17 +17,18 @@ public class EnemyBullet : MonoBehaviour
     {
         switch (collider.tag)
         {
-            case "Player":
-                // Enemy‚ÍCollider‚ÆTrigger‚ÂA‚»‚Ì‚¤‚¿‚ÌCollider‚µ‚©”½‰‚µ‚È‚¢‚æ‚¤‚É
-                if (collider.isTrigger) return;
-                CharacterHealth eh = collider.gameObject.GetComponent<CharacterHealth>();
-                if (eh != null)
-                {
-                    eh.Damage();
-                }
-                Destroy(gameObject);
-                break;
+            //case "Player":
+            //    // Enemy‚ÍCollider‚ÆTrigger‚ÂA‚»‚Ì‚¤‚¿‚ÌCollider‚µ‚©”½‰‚µ‚È‚¢‚æ‚¤‚É
+            //    if (collider.isTrigger) return;
+            //    CharacterHealth eh = collider.gameObject.GetComponent<CharacterHealth>();
+            //    if (eh != null)
+            //    {
+            //        eh.Damage();
+            //    }
+            //    Destroy(gameObject);
+            //    break;
             case "Terrain": case "PlayerBullet":
+            case "Player":
                 Destroy(gameObject);
                 break;
             default:

@@ -20,4 +20,17 @@ public class EnemyMain : MonoBehaviour
         GameManager.OnEnemyDeath(gameObject);
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        switch (other.tag) {
+            case "PlayerBullet":
+                // TODO: CharacterDanage.ReceiveDamage()に変更
+                CharacterHealth ch = GetComponent<CharacterHealth>();
+                ch.Damage();
+                break;
+            default:
+                break;
+        }
+    }
 }
