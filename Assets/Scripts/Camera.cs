@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    private Vector3 offset = new Vector3(0, 1, -5);
 
 
     private List<(GameObject obj, Material mat)> blockedWalls; 
@@ -23,8 +22,8 @@ public class Camera : MonoBehaviour
         ResetWallMaterials();
         blockedWalls.Clear();
 
-        transform.position = player.TransformPoint(offset);
-        transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
+        transform.position = player.Find("CameraPoint").position;
+        transform.forward = player.Find("CameraPoint").forward;
 
 
         FindWallsInBetween();
