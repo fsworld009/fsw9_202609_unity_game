@@ -55,4 +55,9 @@ public class CharacterMove : MonoBehaviour
     {
         return moveSpeed;
     }
+
+    public void LookAt(Vector3 pos, float delay)
+    {
+        transform.LookAt(pos);
+    }
 }
