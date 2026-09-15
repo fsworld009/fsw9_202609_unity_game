@@ -3,23 +3,34 @@ using UnityEngine;
 public class TriggerPoint : MonoBehaviour
 {
 
-    private SpawnPoint[] spawnPoints;
+    private Transform spawnObjs;
+    bool isTriggered;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        spawnPoints = GetComponentsInChildren<SpawnPoint>();
+
+    }
+
+    void OnEnable()
+    {
+        spawnObjs = transform.Find("SpawnObjs");
+        isTriggered = false;
+        foreach (Transform child in spawnObjs)
+        {
+            child.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (!isTriggered && other.tag == "Player")
         {
-            foreach (SpawnPoint spawnPoint in spawnPoints)
+            foreach (Transform child in spawnObjs)
             {
-                spawnPoint.Spawn();
+                child.gameObject.SetActive(true);
             }
-            Destroy(gameObject);
+            isTriggered = true;
         }
     }
 }

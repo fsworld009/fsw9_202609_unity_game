@@ -3,14 +3,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5.0f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private float rotateSpeed = 1;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-
     private void OnEnable()
     {
+        Debug.Log("PlayerInput enable");
         // Subscribe to the global action change event
         InputSystem.onActionChange += OnActionChanged;
 
@@ -24,6 +19,7 @@ public class PlayerInput : MonoBehaviour
     private void OnDisable()
     {
         // Unsubscribe to avoid memory leaks
+        Debug.Log("PlayerInput enable");
         InputSystem.onActionChange -= OnActionChanged;
 
 

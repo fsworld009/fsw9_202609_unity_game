@@ -28,7 +28,6 @@ public class Camera : MonoBehaviour
 
 
         FindWallsInBetween();
-        Debug.Log($"Walls: {blockedWalls.Count}");
         RenderTransparentWalls();
 
         //transform.position = player.position + (player.forward * offset);
@@ -64,8 +63,6 @@ public class Camera : MonoBehaviour
     {
         Vector3 direction = player.transform.position - transform.position;
         RaycastHit[] hits = Physics.RaycastAll(transform.position, direction.normalized, direction.magnitude, wallLayer);
-        Debug.Log($"hits {hits.Length}");
-
         foreach (RaycastHit hit in hits)
         {
             GameObject wall = hit.collider.gameObject;

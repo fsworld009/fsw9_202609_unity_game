@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerBullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,7 +17,7 @@ public class PlayerBullet : MonoBehaviour
     {
         switch (collider.tag)
         {
-            case "Enemy":
+            case "Player":
                 // EnemyÇÕColliderÇ∆TriggeréùÇ¬ÅAÇªÇÃÇ§ÇøÇÃColliderÇµÇ©îΩâûÇµÇ»Ç¢ÇÊÇ§Ç…
                 if (collider.isTrigger) return;
                 CharacterHealth eh = collider.gameObject.GetComponent<CharacterHealth>();
@@ -27,7 +27,7 @@ public class PlayerBullet : MonoBehaviour
                 }
                 Destroy(gameObject);
                 break;
-            case "Terrain": case "EnemyBullet":
+            case "Terrain": case "PlayerBullet":
                 Destroy(gameObject);
                 break;
             default:

@@ -50,4 +50,9 @@ public class CharacterMove : MonoBehaviour
     {
         moveRot = rotation;
     }
+
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
 }

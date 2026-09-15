@@ -16,6 +16,8 @@ public class EnemyMain : MonoBehaviour
 
     public void OnDeath()
     {
+
+        GameManager.OnEnemyDeath(gameObject);
         Destroy(gameObject);
     }
 }

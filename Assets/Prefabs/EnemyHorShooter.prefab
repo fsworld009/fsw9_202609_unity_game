@@ -103,11 +103,12 @@ GameObject:
   - component: {fileID: 28796457552755108}
   - component: {fileID: 5865522240835700871}
   - component: {fileID: 3651532585861807020}
-  - component: {fileID: 2575012000471551496}
   - component: {fileID: 8836982755667160941}
+  - component: {fileID: 5212800134740006925}
   - component: {fileID: 730926854031272561}
+  - component: {fileID: 202077240283238433}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: EnemyHorShooter
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,22 +218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97761a49970530458e80a05179614c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
---- !u!114 &2575012000471551496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079285211605109790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55858848fc07c204e9ba82d43efb588b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMove
-  maxMoveTime: 3
-  maxCooldownTime: 3
-  moveSpeed: 1
-  stopDistance: 1.5
 --- !u!114 &8836982755667160941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +249,21 @@ MonoBehaviour:
   onHealthUpdate:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5212800134740006925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079285211605109790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e42991925d46f048a7b68c9fc5b5069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAIHorShooter
+  distanceBeforeTurn: 5
+  firstShootWaitTime: 1
+  moveLeftAtStart: 0
 --- !u!114 &730926854031272561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,8 +276,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01454d9c65708144390b9632ee9737fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMove
-  moveSpeed: 1
-  rotateSpeed: 1
+  moveSpeed: 1.2
+  rotateSpeed: 0
+--- !u!114 &202077240283238433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079285211605109790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df1831b846da3bc4f9eb5b6b688a47bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterShoot
+  shootPoint: {fileID: 3089711976548960001}
+  bulletPrefab: {fileID: 5583588063425973289, guid: 92ae63acb962f10408abf33880af75ee, type: 3}
+  rapidDelay: 1
 --- !u!1 &3613789796216821966
 GameObject:
   m_ObjectHideFlags: 0
