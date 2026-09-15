@@ -17,12 +17,8 @@ public class PlayerBullet : MonoBehaviour
     {
         switch (collider.tag)
         {
-            case "Enemy":
-                // EnemyはColliderとTrigger持つ、そのうちのColliderしか反応しないように
-                if (collider.isTrigger) return;
-                Destroy(gameObject);
-                break;
             case "Terrain": case "EnemyBullet":
+            case "Enemy":
                 Destroy(gameObject);
                 break;
             default:

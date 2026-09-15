@@ -23,6 +23,7 @@ public class EnemyMain : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Me");
         switch (other.tag) {
             case "PlayerBullet":
                 // TODO: CharacterDanage.ReceiveDamage()に変更

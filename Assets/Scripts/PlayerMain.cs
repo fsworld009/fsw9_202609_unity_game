@@ -14,33 +14,33 @@ public class PlayerMain : MonoBehaviour
         
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        HandleDamage(collision.collider.tag);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+        HandleDamage(other.tag);
+    }
+
+
+    private void HandleDamage(string tag)
+    {
         int damage = 0;
-        switch (other.tag)
+        switch (tag)
         {
-            case "Enemy": case "EnemyBullet":
+            case "Enemy":
+            case "EnemyBullet":
                 damage = 1;
                 break;
             default:
                 break;
         }
 
-
         if (damage > 0)
         {
             GetComponent<CharacterDamage>().ReceiveDamange(damage);
         }
-
-
-
-        //if (other.tag == "Enemy")
-        //{
-        //    damage = 1;
-        //}
-        //if (damage > 0)
-        //{
-        //    GetComponent<CharacterHealth>().Damage();
-        //}
     }
 }
