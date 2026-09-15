@@ -68,10 +68,10 @@ public class GameManager : MonoBehaviour
         // TODO: check enemy type and decide score;
         AddScore(100);
         instance.enemyDefeated += 1;
-        if (instance.enemyDefeated >= 4)
-        {
-            OnGameClear();
-        }
+        //if (instance.enemyDefeated >= 4)
+        //{
+        //    OnGameClear();
+        //}
     }
 
 

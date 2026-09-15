@@ -166,5 +166,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cdbf44b7d73d344a86ad1a0137094c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBullet
-  speed: 8
+  speed: 10
   bulletTag: PlayerBullet

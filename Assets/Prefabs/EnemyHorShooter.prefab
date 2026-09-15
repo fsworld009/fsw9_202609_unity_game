@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e42991925d46f048a7b68c9fc5b5069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAIHorShooter
-  distanceBeforeTurn: 5
+  distanceBeforeTurn: 3
   firstShootWaitTime: 1
   moveLeftAtStart: 0
 --- !u!114 &730926854031272561
