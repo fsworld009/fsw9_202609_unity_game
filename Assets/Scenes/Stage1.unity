@@ -1328,6 +1328,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TriggerPoint1
       objectReference: {fileID: 0}
+    - target: {fileID: 3884643243087336225, guid: 28d54993303fb2b49987176dec5432d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
