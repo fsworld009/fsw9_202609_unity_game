@@ -29,7 +29,7 @@ public class EnemyBullet : MonoBehaviour
             //    break;
             case "Terrain": case "PlayerBullet":
             case "Player":
-                Destroy(gameObject);
+                GetComponent<StraightBullet>().DestroyBullet();
                 break;
             default:
                 break;

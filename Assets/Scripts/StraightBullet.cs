@@ -6,7 +6,9 @@ public class StraightBullet : MonoBehaviour
     //private Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private float speed;
-    [SerializeField] string bulletTag;
+    [SerializeField] private string bulletTag;
+    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private float explosionPrefabScale;
     void Start()
     {
     }
@@ -29,5 +31,17 @@ public class StraightBullet : MonoBehaviour
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         rb.linearVelocity = transform.forward * speed;
+    }
+
+    public void DestroyBullet()
+    {
+        GameObject vfx = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        foreach (Transform child in vfx.transform)
+        {
+            child.transform.localScale = new Vector3(explosionPrefabScale, explosionPrefabScale, explosionPrefabScale);
+        }
+        //vfx.transform.localScale = new Vector3(explosionPrefabScale, explosionPrefabScale, explosionPrefabScale);
+        Destroy(vfx, 1);
+        Destroy(gameObject);
     }
 }

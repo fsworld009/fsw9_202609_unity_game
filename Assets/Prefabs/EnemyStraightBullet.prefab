@@ -168,3 +168,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBullet
   speed: 7
   bulletTag: EnemyBullet
+  explosionPrefab: {fileID: 123640, guid: 9242b15a276bc5a4babd09239e5fa709, type: 3}
+  explosionPrefabScale: 0.4
