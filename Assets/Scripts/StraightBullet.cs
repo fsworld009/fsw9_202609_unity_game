@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class StraightBullet : MonoBehaviour
 {
-    //private Vector3 forward;
-    //private Rigidbody rb;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private float speed;
     [SerializeField] private string bulletTag;
     [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private AudioClip explosionSfx;
     void Start()
     {
     }
@@ -42,6 +40,13 @@ public class StraightBullet : MonoBehaviour
         }
         //vfx.transform.localScale = new Vector3(explosionPrefabScale, explosionPrefabScale, explosionPrefabScale);
         Destroy(vfx, 1);
-        Destroy(gameObject);
+        GetComponent<AudioSource>().PlayOneShot(explosionSfx);
+
+        // Turn off trigger while waiting for audio clip to finish
+        GetComponent<Collider>().enabled = false;
+        GetComponent<MeshRenderer>().enabled = false;
+
+
+        Destroy(gameObject, explosionSfx.length);
     }
 }

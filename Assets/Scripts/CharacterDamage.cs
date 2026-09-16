@@ -39,7 +39,6 @@ public class CharacterDamage : MonoBehaviour
             timerInvisible -= Time.deltaTime;
             if (timerInvisible <= 0)
             {
-                Debug.Log("invisible time up");
                 isInvisible = false;
                 animator.SetBool("IsInvisible", false);
             }

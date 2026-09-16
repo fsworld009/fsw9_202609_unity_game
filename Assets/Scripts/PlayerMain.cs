@@ -3,6 +3,8 @@ using UnityEngine;
 public class PlayerMain : MonoBehaviour
 {
     [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private AudioClip hurtByEnmyBodySfx;
+    [SerializeField] private AudioClip deathSfx;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,6 +34,9 @@ public class PlayerMain : MonoBehaviour
         switch (tag)
         {
             case "Enemy":
+                GetComponent<AudioSource>().PlayOneShot(hurtByEnmyBodySfx);
+                damage = 1;
+                break;
             case "EnemyBullet":
                 damage = 1;
                 break;
@@ -50,7 +55,11 @@ public class PlayerMain : MonoBehaviour
         GameObject vfx = Instantiate(explosionPrefab,
             new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), Quaternion.identity);
         Destroy(vfx, 1);
+        GetComponent<AudioSource>().PlayOneShot(deathSfx);
+
+
         Invoke(nameof(OnGameOver), 2);
+
         transform.Find("Character").gameObject.SetActive(false);
     }
 

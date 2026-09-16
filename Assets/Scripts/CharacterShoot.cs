@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,8 @@ public class CharacterShoot : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
 
     [SerializeField] private float rapidDelay;
+
+    [SerializeField] private AudioClip shootSfx;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -39,6 +42,9 @@ public class CharacterShoot : MonoBehaviour
     public void Shoot()
     {
         if (rapidDelayTimer > 0) return;
+
+        AudioSource ase = GetComponent<AudioSource>();
+        ase.PlayOneShot(shootSfx);
 
         GameObject bullet = Instantiate(bulletPrefab, shootPoint.position, shootPoint.rotation);
         bullet.transform.forward = shootPoint.forward;
