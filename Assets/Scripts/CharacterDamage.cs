@@ -47,7 +47,7 @@ public class CharacterDamage : MonoBehaviour
     }
 
     // キャラクターがダメージを受けた時この関数を呼ぶ
-    public void ReceiveDamange(float damage)
+    public void ReceiveDamage(float damage)
     {
         if (damage <= 0 || ch.IsDead()) return;
         if (isInvisible || isKnockback) return;

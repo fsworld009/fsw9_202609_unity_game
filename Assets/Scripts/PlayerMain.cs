@@ -40,7 +40,7 @@ public class PlayerMain : MonoBehaviour
 
         if (damage > 0)
         {
-            GetComponent<CharacterDamage>().ReceiveDamange(damage);
+            GetComponent<CharacterDamage>().ReceiveDamage(damage);
         }
     }
 }

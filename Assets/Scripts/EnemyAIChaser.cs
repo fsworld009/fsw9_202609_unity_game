@@ -13,14 +13,16 @@ public class EnemyAIChaser : MonoBehaviour
 
     [SerializeField] private float stopDistance = 1.5f;
 
-    private CharacterMove ch;
+    private CharacterMove cm;
     private Animator animator;
+    private CharacterHealth ch;
     void OnEnable()
     {
         player = GameObject.FindWithTag("Player");
         timerMove = moveTime;
         timerCooldown = 0;
-        ch = GetComponent<CharacterMove>();
+        cm = GetComponent<CharacterMove>();
+        ch = GetComponent<CharacterHealth>();
         animator = GetComponentInChildren<Animator>();
         animator.SetBool("IsRunning", true);
     }
@@ -28,7 +30,8 @@ public class EnemyAIChaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ch.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z), 0);
+        if (ch.IsDead()) return;
+        cm.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z), 0);
         if (timerCooldown > 0)
         {
             timerCooldown -= Time.deltaTime;
@@ -44,7 +47,7 @@ public class EnemyAIChaser : MonoBehaviour
             {
                 float distance = Vector3.Distance(player.transform.position, transform.position);
                 if (distance > stopDistance) {
-                    ch.Move(Vector3.forward);
+                    cm.Move(Vector3.forward);
                 }
                 timerMove -= Time.deltaTime;
             }

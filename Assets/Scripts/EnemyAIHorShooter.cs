@@ -10,7 +10,7 @@ public class EnemyAIHorShooter : MonoBehaviour
 
     private float firstShootTimer;
     private bool moveLeft;
-
+    private CharacterHealth ch;
     private float movedDistance;
 
 
@@ -22,6 +22,7 @@ public class EnemyAIHorShooter : MonoBehaviour
 
     private void OnEnable()
     {
+        ch = GetComponent<CharacterHealth>();
         firstShootTimer = firstShootWaitTime;
         moveLeft = moveLeftAtStart;
         movedDistance = 0;
@@ -30,6 +31,7 @@ public class EnemyAIHorShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (ch.IsDead()) return;
         if (firstShootTimer > 0)
         {
             firstShootTimer -= Time.deltaTime;

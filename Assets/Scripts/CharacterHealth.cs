@@ -44,8 +44,6 @@ public class CharacterHealth : MonoBehaviour
 
     private void Die()
     {
-        //gameManager.AddScore(1);
-        //GameManager.AddScore(100);
         onDeath.Invoke(gameObject);
     }
 

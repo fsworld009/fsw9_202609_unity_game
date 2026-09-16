@@ -36,6 +36,8 @@ public class CharacterMove : MonoBehaviour
             moveRot = Vector3.zero;
         }
 
+        // Collisionした後に無限に回転しないように
+        rb.angularVelocity = Vector3.zero;
 
     }
 

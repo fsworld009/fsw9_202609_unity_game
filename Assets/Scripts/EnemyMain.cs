@@ -25,9 +25,8 @@ public class EnemyMain : MonoBehaviour
     {
         switch (other.tag) {
             case "PlayerBullet":
-                // TODO: CharacterDanage.ReceiveDamage()に変更
-                CharacterHealth ch = GetComponent<CharacterHealth>();
-                ch.Damage();
+                CharacterDamage cd = GetComponent<CharacterDamage>();
+                cd.ReceiveDamage(1);
                 break;
             default:
                 break;
