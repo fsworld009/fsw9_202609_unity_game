@@ -8,7 +8,6 @@ public class StraightBullet : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private string bulletTag;
     [SerializeField] private GameObject explosionPrefab;
-    [SerializeField] private float explosionPrefabScale;
     void Start()
     {
     }
@@ -38,7 +37,8 @@ public class StraightBullet : MonoBehaviour
         GameObject vfx = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         foreach (Transform child in vfx.transform)
         {
-            child.transform.localScale = new Vector3(explosionPrefabScale, explosionPrefabScale, explosionPrefabScale);
+            // 弾の大きさを合わせる
+            child.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
         }
         //vfx.transform.localScale = new Vector3(explosionPrefabScale, explosionPrefabScale, explosionPrefabScale);
         Destroy(vfx, 1);

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMain : MonoBehaviour
 {
+    [SerializeField] private GameObject explosionPrefab;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -42,5 +43,19 @@ public class PlayerMain : MonoBehaviour
         {
             GetComponent<CharacterDamage>().ReceiveDamage(damage);
         }
+    }
+
+    public void OnDeath()
+    {
+        GameObject vfx = Instantiate(explosionPrefab,
+            new Vector3(transform.position.x, transform.position.y + 0.7f, transform.position.z), Quaternion.identity);
+        Destroy(vfx, 1);
+        Invoke(nameof(OnGameOver), 2);
+        transform.Find("Character").gameObject.SetActive(false);
+    }
+
+    private void OnGameOver()
+    {
+        GameManager.OnGameOver();
     }
 }

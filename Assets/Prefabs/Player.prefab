@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168185c66d4fdaa47984521096bcacd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCollision
+  explosionPrefab: {fileID: 100672, guid: 7dc0b63f67faaf9479803bcfdff7f71e, type: 3}
 --- !u!114 &1946369546172004552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +217,19 @@ MonoBehaviour:
   maxHp: 5
   onDeath:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3768978975441132016}
+        m_TargetAssemblyTypeName: PlayerMain, Assembly-CSharp
+        m_MethodName: OnDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHealthUpdate:
     m_PersistentCalls:
       m_Calls: []

@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
+    private CharacterHealth ch;
     private void OnEnable()
     {
         // Subscribe to the global action change event
@@ -12,7 +13,7 @@ public class PlayerInput : MonoBehaviour
         InputAction jumpAction = InputSystem.actions.FindAction("Jump");
         jumpAction.started += OnJump;
 
-
+        ch = GetComponent<CharacterHealth>();
     }
 
     private void OnDisable()
@@ -27,6 +28,8 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
+        if (ch.IsDead()) return;
+
         InputAction moveAction = InputSystem.actions.FindAction("Move");
         if (moveAction != null && moveAction.IsPressed())
         {
