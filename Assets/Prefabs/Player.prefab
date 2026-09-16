@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7ed212dde95e2c439de11c6ab900b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterHealth
-  maxHp: 5
+  maxHp: 10
   onDeath:
     m_PersistentCalls:
       m_Calls:
@@ -234,7 +234,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHealthUpdate:
+  onHpUpdate:
     m_PersistentCalls:
       m_Calls: []
 --- !u!54 &5592135615248673476
@@ -300,6 +300,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterInvisible
   hasKnockBack: 1
+  knockBackSpeed: 7
+  knockBackTime: 0.5
   invisibleTime: 1
 --- !u!82 &1564296303682290951
 AudioSource:

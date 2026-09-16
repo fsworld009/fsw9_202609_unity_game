@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
     private CharacterHealth ch;
+    private CharacterDamage cd;
     private void OnEnable()
     {
         // Subscribe to the global action change event
@@ -14,6 +15,7 @@ public class PlayerInput : MonoBehaviour
         jumpAction.started += OnJump;
 
         ch = GetComponent<CharacterHealth>();
+        cd = GetComponent<CharacterDamage>();
     }
 
     private void OnDisable()
@@ -28,7 +30,7 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        if (ch.IsDead()) return;
+        if (ch.IsDead() || cd.IsInKnockback()) return;
 
         InputAction moveAction = InputSystem.actions.FindAction("Move");
         if (moveAction != null && moveAction.IsPressed())
@@ -88,6 +90,7 @@ public class PlayerInput : MonoBehaviour
 
     private void OnJump(InputAction.CallbackContext context)
     {
+        if (ch.IsDead() || cd.IsInKnockback()) return;
         GetComponent<CharacterJump>().Jump();
     }
 }

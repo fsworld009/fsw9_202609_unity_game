@@ -1,29 +1,32 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CharacterDamage : MonoBehaviour
 {
     // 一旦強制的にfalseにする
-    [SerializeField] private bool hasKnockBack;
+    [SerializeField] private bool hasKnockBack = false;
+    [SerializeField] private float knockBackSpeed;
+    [SerializeField] private float knockBackTime;
     [SerializeField] private float invisibleTime;
 
     private float timerInvisible;
+    private float timerKnockback;
 
     private bool isInvisible;
     private bool isKnockback;
 
     private Animator animator;
     private CharacterHealth ch;
+    private CharacterMove cm;
 
     void OnEnable()
     {
-        // Knockback設計の問題あり、一旦使わない
-        hasKnockBack = false;
-
 
         timerInvisible = 0;
         isKnockback = false;
 
         ch = GetComponent<CharacterHealth>();
+        cm = GetComponent<CharacterMove>();
         animator = GetComponentInChildren<Animator>();
 
         animator.SetBool("IsKnockback", false);
@@ -34,7 +37,15 @@ public class CharacterDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timerInvisible > 0)
+        if (isKnockback)
+        {
+            cm.Move(new Vector3(0,0,-1), knockBackSpeed);
+            timerKnockback -= Time.deltaTime;
+            if (timerKnockback <= 0)
+            {
+                OnKnockBackAnimationEnd();
+            }
+        } else if (timerInvisible > 0)
         {
             timerInvisible -= Time.deltaTime;
             if (timerInvisible <= 0)
@@ -61,6 +72,7 @@ public class CharacterDamage : MonoBehaviour
             // Set flag and play knockback animation
             isKnockback = true;
             animator.SetBool("IsKnockback", true);
+            timerKnockback = knockBackTime;
         } else
         {
             SetInvisible();
@@ -81,5 +93,10 @@ public class CharacterDamage : MonoBehaviour
         isKnockback = false;
         animator.SetBool("IsKnockback", false);
         SetInvisible();
+    }
+
+    public bool IsInKnockback()
+    {
+        return isKnockback;
     }
 }
