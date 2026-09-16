@@ -27,6 +27,7 @@ public class EnemyMain : MonoBehaviour
         GetComponent<AudioSource>().PlayOneShot(deathSfx);
 
         transform.Find("Character").gameObject.SetActive(false);
+        transform.Find("HPCanvas").gameObject.SetActive(false);
         GetComponent<Collider>().enabled = false;
 
         Destroy(gameObject, deathSfx.length);

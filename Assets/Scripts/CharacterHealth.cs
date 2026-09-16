@@ -4,11 +4,11 @@ using UnityEngine.Events;
 public class CharacterHealth : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private int maxHp = 3;
+    [SerializeField] private float maxHp = 3;
     [SerializeField] public UnityEvent<GameObject> onDeath = new UnityEvent<GameObject>();
-    [SerializeField] public UnityEvent<int> onHealthUpdate = new UnityEvent<int>();
+    [SerializeField] public UnityEvent<float> onHpUpdate = new UnityEvent<float>();
 
-    private int hp = 2;
+    private float hp = 2;
     void Start()
     {
         
@@ -17,7 +17,7 @@ public class CharacterHealth : MonoBehaviour
     private void OnEnable()
     {
         hp = maxHp;
-        onHealthUpdate.Invoke(hp);
+        //onHpUpdate.Invoke(GetHpRate());
     }
 
     // Update is called once per frame
@@ -31,10 +31,10 @@ public class CharacterHealth : MonoBehaviour
         onDeath.RemoveAllListeners();
     }
 
-    public bool Damage(int damage = 1)
+    public bool Damage(float damage = 1)
     {
         hp -= damage;
-        onHealthUpdate.Invoke(hp);
+        onHpUpdate.Invoke(GetHpRate());
         if (hp <= 0)
         {
             Die();

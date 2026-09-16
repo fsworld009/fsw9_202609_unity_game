@@ -51,7 +51,7 @@ public class CharacterDamage : MonoBehaviour
         if (damage <= 0 || ch.IsDead()) return;
         if (isInvisible || isKnockback) return;
 
-        ch.Damage((int)damage);
+        ch.Damage(damage);
 
         // TODO: 死亡アニメーション処理？
         if (ch.IsDead()) return;
