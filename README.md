@@ -11,9 +11,15 @@ Unity Game 1
   - 必要なファイル：`cannon_01.wav`, `laser_01.wav`
 - [FREE SOUND COLLECTION](https://assetstore.unity.com/packages/audio/sound-fx/free-sound-collection-291913#content)
   - 必要なファイル：
-    - `Musical Instruments(16)`
+    - Musical Instruments(16)
       - `Cymbals-008.wav`
-    - `Retro(52)`
+    - Retro(52)
       - `ExplodeBip1.wav`
       - `hit_explosion-2.wav`
       - `hit_explosion-3.wav`
+- [Action RPG Music Free](https://assetstore.unity.com/packages/audio/music/action-rpg-music-free-85434#content)
+  - 必要なファイル：
+    - `BGM04town0.wav`
+    - `BGM14chase.wav`
+    - `MS01triumph1NL.wav`
+    - `MS02gameover2V1NL.wav`
