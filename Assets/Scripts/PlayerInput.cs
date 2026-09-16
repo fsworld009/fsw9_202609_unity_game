@@ -1,4 +1,3 @@
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
@@ -8,7 +7,7 @@ public class PlayerInput : MonoBehaviour
     private void OnEnable()
     {
         // Subscribe to the global action change event
-        InputSystem.onActionChange += OnActionChanged;
+        //InputSystem.onActionChange += OnActionChanged;
 
 
         InputAction jumpAction = InputSystem.actions.FindAction("Jump");
@@ -21,7 +20,7 @@ public class PlayerInput : MonoBehaviour
     private void OnDisable()
     {
         // Unsubscribe to avoid memory leaks
-        InputSystem.onActionChange -= OnActionChanged;
+        //InputSystem.onActionChange -= OnActionChanged;
 
 
         InputAction jumpAction = InputSystem.actions.FindAction("Jump");
@@ -56,37 +55,36 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
-    private void OnActionChanged(object obj, InputActionChange change)
-    {
-        return;
-        // Check if the change event belongs to an individual action
-        if (obj is InputAction action)
-        {
-            if (action.actionMap.name == "Player") { 
-                switch (change)
-                {
-                    case InputActionChange.ActionStarted:
-                        Debug.Log($"Action started: {action.name}");
-                        break;
-                    case InputActionChange.ActionPerformed:
-                        Debug.Log($"Action performed: {action.name}. Value: {action.ReadValueAsObject()}");
-                        break;
-                    case InputActionChange.ActionCanceled:
-                        Debug.Log($"Action canceled: {action.name}");
-                        break;
-                }
+    //private void OnActionChanged(object obj, InputActionChange change)
+    //{
+    //    // Check if the change event belongs to an individual action
+    //    if (obj is InputAction action)
+    //    {
+    //        if (action.actionMap.name == "Player") { 
+    //            switch (change)
+    //            {
+    //                case InputActionChange.ActionStarted:
+    //                    Debug.Log($"Action started: {action.name}");
+    //                    break;
+    //                case InputActionChange.ActionPerformed:
+    //                    Debug.Log($"Action performed: {action.name}. Value: {action.ReadValueAsObject()}");
+    //                    break;
+    //                case InputActionChange.ActionCanceled:
+    //                    Debug.Log($"Action canceled: {action.name}");
+    //                    break;
+    //            }
 
-            }
-        }
-        // Check if the change event belongs to an action map
-        else if (obj is InputActionMap actionMap)
-        {
-            if (change == InputActionChange.ActionMapEnabled)
-            {
-                Debug.Log($"Action Map enabled: {actionMap.name}");
-            }
-        }
-    }
+    //        }
+    //    }
+    //    // Check if the change event belongs to an action map
+    //    else if (obj is InputActionMap actionMap)
+    //    {
+    //        if (change == InputActionChange.ActionMapEnabled)
+    //        {
+    //            Debug.Log($"Action Map enabled: {actionMap.name}");
+    //        }
+    //    }
+    //}
 
     private void OnJump(InputAction.CallbackContext context)
     {
