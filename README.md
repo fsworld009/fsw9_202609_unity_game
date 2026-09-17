@@ -17,6 +17,7 @@ Unity Game 1
       - `ExplodeBip1.wav`
       - `hit_explosion-2.wav`
       - `hit_explosion-3.wav`
+      - `Jump-003.wav`
 - [Action RPG Music Free](https://assetstore.unity.com/packages/audio/music/action-rpg-music-free-85434#content)
   - 必要なファイル：
     - `BGM04town0.wav`

@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterJump
   jumpVelocity: 5
   groundCheckPoint: {fileID: 1355261981870425387}
+  jumpSfx: {fileID: 8300000, guid: dfa3ab4123c43bd6fae58d0ed5b8e713, type: 3}
 --- !u!114 &1966189069422673833
 MonoBehaviour:
   m_ObjectHideFlags: 0
