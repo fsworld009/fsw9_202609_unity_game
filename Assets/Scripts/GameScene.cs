@@ -8,6 +8,8 @@ public class GameScene : MonoBehaviour
     void Start()
     {
         GameManager.InitGame();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
