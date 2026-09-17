@@ -19,4 +19,9 @@ public class TitleScene : MonoBehaviour
     {
         SceneManager.LoadScene("Scenes/Stage1");
     }
+
+    public void OnQuitClicked()
+    {
+        Application.Quit();
+    }
 }
